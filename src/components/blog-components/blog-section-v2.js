@@ -1,3 +1,5 @@
+// This is on the main page which show Recent  blog post
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ImageLazyLoad from "../section-components/ImageLazyLoad";

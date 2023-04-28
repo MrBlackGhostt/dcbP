@@ -8,15 +8,15 @@ class BlogDetails extends Component {
 		return imageArray.map((singleArray, index) => {
 			if (index != 0) {
 				return (
-					<div className="tp-gallery-item col-md-4 col-sm-6 ">
-						<div className="tp-gallery-item-img" >
-							<img
-								src={singleArray.imagejpeg}
-								datatype={singleArray.imagewebp}
-								style={{margin:"10px"}}
-							/>
+						<div className="tp-gallery-item col-md-4 col-sm-6">
+							<div className="tp-gallery-item-img" >
+								<img
+									src={singleArray.imagejpeg}
+									datatype={singleArray.imagewebp}
+									style={{margin:"10px"}}
+								/>
+							</div>
 						</div>
-					</div>
 				);
 			}
 		});
@@ -66,8 +66,8 @@ class BlogDetails extends Component {
 					<div className="row">
 						<div className="col-lg-8">
 							<div className="single-blog mb-3">
-								<div className="thumb" style={{width:"100%",display:"flex",justifyContent:"space-between"}}>
-									<ImageLazyLoad imagejpeg={image1jpeg} imagewebp={image1webp} alt={alt1} />
+								<div className="thumb">
+									<ImageLazyLoad imagejpeg={image1jpeg} imagewebp={image1webp} alt={alt1} />  {/* its the 2 top image inside the blog page*/} 
 
 									{/* <picture>
                     <source srcSet={image1webp} alt={alt1} />
@@ -99,7 +99,7 @@ class BlogDetails extends Component {
 							)}
 
 							{/* details-gallery-start */}
-							<div className="gallery-area">
+								<div className="container">
 								<div className="grid-containerss">
 									<div className="gallery-filter-area row custom-gutter">
 										<div className="gallery-sizer col-1" />
@@ -111,10 +111,11 @@ class BlogDetails extends Component {
                           <source srcSet={imageArray[0].imagewebp} alt={alt1} />
                           <source srcSet={imageArray[0].imagejpeg} alt={alt1} />
                         </picture> */}
-												<ImageLazyLoad
-													imagejpeg={imageArray[0].imagejpeg}
+												<img
+													src={imageArray[0].imagejpeg}
 													imagewebp={imageArray[0].imagewebp}
 													alt={"tour details"}
+													style={{}}
 												/>
 
 												{/* <img src={imageArray[0].imagewebp} alt="image" /> */}
