@@ -67,12 +67,12 @@ class BlogDetails extends Component {
 						<div className="col-lg-8">
 							<div className="single-blog mb-3">
 								<div className="thumb">
-									<ImageLazyLoad imagejpeg={image1jpeg} imagewebp={image1webp} alt={alt1} />  {/* its the 2 top image inside the blog page*/} 
+									{/* <img src={image1jpeg} srcSet={image1webp} alt={alt1} />  its the 2 top image inside the blog page  */}
 
-									{/* <picture>
+									<picture>
                     <source srcSet={image1webp} alt={alt1} />
                     <img alt={alt1} srcSet={image1jpeg} />
-                  </picture> */}
+                  </picture>
 								</div>
 								<div className="single-blog-details">
 									<p className="date mb-0">{date}</p>

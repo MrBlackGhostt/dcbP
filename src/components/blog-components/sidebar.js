@@ -40,7 +40,7 @@ class Sidebar extends Component {
                 <Link to={{pathname:"/blogs/cycle-tours/delhi-first-ever-treasure-hunt-delhi-by-cycle"}}>Events</Link>
               </li>
               <li>
-                <Link to={{pathname:"/blogs/tours-in-delhi/rediscover-delhi-by-cycle"}}>Explore Delhi</Link>
+                <Link to={{pathname:"/blogs/things-to-do/things-to-do-after-delhi-by-cycle"}}>Explore Delhi</Link>
               </li>
             </ul>
           </div>
