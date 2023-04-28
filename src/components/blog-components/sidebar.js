@@ -1,3 +1,5 @@
+//Blo{{pathname:""}}
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
@@ -23,22 +25,22 @@ class Sidebar extends Component {
             <h2 className="widget-title">Category</h2>
             <ul>
               <li>
-                <Link to="/blog-v2">Delhi Cycle Tours</Link>
+                <Link to={{pathname:"/blogs/things-to-do-in-delhi/things-to-do-after-delhi-by-cycle"}}>Delhi Cycle Tours</Link>
               </li>
               <li>
-                <Link to="/blog-v2">Cycling Holidays</Link>
+                <Link to={{pathname:"/blogs/cycle-tours/delhi-first-cycle-tour-team"}}>Cycling Holidays</Link>
               </li>
               <li>
-                <Link to="/blog-v2">Destinations India</Link>
+                <Link to={{pathname:"/blogs/golden-triangle-tour/beyond-the-golden-triangle-of-india"}}>Destinations India</Link>
               </li>
               <li>
-                <Link to="/blog-v2">Tour Leader Stories</Link>
+                <Link to={{pathname:"/blogs/tour-guide/female-tour-guide-in-india"}}>Tour Leader Stories</Link>
               </li>
               <li>
-                <Link to="/blog-v2">Events</Link>
+                <Link to={{pathname:"/blogs/cycle-tours/delhi-first-ever-treasure-hunt-delhi-by-cycle"}}>Events</Link>
               </li>
               <li>
-                <Link to="/blog-v2">Explore Delhi</Link>
+                <Link to={{pathname:"/blogs/tours-in-delhi/rediscover-delhi-by-cycle"}}>Explore Delhi</Link>
               </li>
             </ul>
           </div>
@@ -114,16 +116,16 @@ class Sidebar extends Component {
           <div className="widget widget_tag_cloud">
             <h2 className="widget-title">Tags</h2>
             <div className="tagcloud">
-              <Link to="/blog-v2">India</Link>
-              <Link to="/blog-v2">Cycle Tours</Link>
-              <Link to="/blog-v2">Bike Tour</Link>
-              <Link to="/blog-v2">Cycling Holidays</Link>
-              <Link to="/blog-v2">Delhi By Cycle</Link>
-              <Link to="/blog-v2">Tours</Link>
-              <Link to="/blog-v2">Reviews</Link>
-              <Link to="/blog-v2">Nature</Link>
-              <Link to="/blog-v2">Culture</Link>
-              <Link to="/blog-v2">Spiritual</Link>
+              <Link to={{pathname:"/tours"}}>India</Link>
+              <Link to={{pathname:"/tours/cycle-tours-in-delhi"}}>Cycle Tours</Link>
+              <Link to={{pathname:"/tours/cycle-tours/raj-tour-delhi-by-cycle"}}>Bike Tour</Link>
+              <Link to={{pathname:"/tours/bicycle-touring"}}>Cycling Holidays</Link>
+              <Link to={{pathname:"/"}}>Delhi By Cycle</Link>
+              <Link to={{pathname:"/tours"}}>Tours</Link>
+              <Link to={{pathname:"/about"}}>Reviews</Link>
+              <Link to={{pathname:"/tours/bicycle-touring/jim-corbett-villages-delhi-by-cycle"}}>Nature</Link>
+              <Link to={{pathname:"/tours/walking-tours/mehrauli-tour-delhi-by-cycle"}}>Culture</Link>
+              <Link to={{pathname:"/tours/bicycle-touring/krishna-trails-taj-mahal-delhi-by-cycle"}}>Spiritual</Link>
             </div>
           </div>
           {/* <div className="widget_ads">
