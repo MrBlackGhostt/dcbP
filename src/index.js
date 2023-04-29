@@ -19,6 +19,7 @@ import UserProfile from "./components/user-profile";
 import Blog from "./components/blog";
 import BlogDetails from "./components/blog-details";
 import TestRoute from "./components/testroute";
+import PrivacyPopup from "./components/section-components/PrivacyPage";
 
 import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunk from "redux-thunk";
@@ -53,6 +54,7 @@ class Root extends Component {
 				<Route exact path="/user-profile" component={UserProfile} />
 				<Route exact path="/blogs" component={Blog} />
 				<Route exact path="/blog-details" component={BlogDetails} />
+				<Route exact path="/privacy" component={PrivacyPopup} />
 			</BrowserRouter>
 		);
 	}

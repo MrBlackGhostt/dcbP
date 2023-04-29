@@ -171,10 +171,11 @@ class Footer_v1 extends Component {
 										<Link to="/contact">Contact</Link>
 									</li>
 									<li>
-										<Link to="/contact">Privacy Policy</Link>
+										<Link to="/privacy">Privacy Policy</Link>
 									</li>
 									<li>
 										<Link to="/contact">Terms & Conditions</Link>
+									
 									</li>
 								</ul>
 							</div>
