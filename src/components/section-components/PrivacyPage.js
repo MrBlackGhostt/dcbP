@@ -4,7 +4,7 @@ import Page_header from "../global-components/page-header"
 import Footer_v1 from "../global-components/footer"
 
 function PrivacyPopup() {
-  const [isOpen, setIsOpen] = useState(false)
+  const headStyle = { fontSize:"25px",fontWeight:"bold",margin:"4vh 0" }
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -61,14 +61,14 @@ function PrivacyPopup() {
         </div>
 
         <div className='pgcon1'>
-          <h3>Consent</h3>
+          <h3 style={headStyle}> Consent</h3> 
 
           <p>
             By using our website, you hereby consent to our Privacy Policy and
             agree to its terms.
           </p>
 
-          <h3>Information we collect</h3>
+          <h3 style={headStyle}> Information we collect</h3> 
 
           <p>
             The personal information that you are asked to provide, and the
@@ -89,7 +89,7 @@ function PrivacyPopup() {
         </div>
 
         <div className='pgcon1'>
-          <h3>Log Files</h3>
+          <h3 style={headStyle}> Log Files</h3> 
 
           <p>
             Delhi By Cycle follows a standard procedure of using log files.
@@ -104,7 +104,7 @@ function PrivacyPopup() {
             website, and gathering demographic information.
           </p>
 
-          <h3>Cookies and Web Beacons</h3>
+          <h3 style={headStyle}> Cookies and Web Beacons</h3> 
 
           <p>
             Like any other website, Delhi By Cycle uses "cookies". These cookies
@@ -117,7 +117,7 @@ function PrivacyPopup() {
         </div>
 
         <div className='pgcon1'>
-          <h3>Advertising Partners Privacy Policies</h3>
+          <h3 style={headStyle}> Advertising Partners Privacy Policies</h3> 
 
           <p>
             You may consult this list to find the Privacy Policy for each of the
@@ -142,7 +142,7 @@ function PrivacyPopup() {
         </div>
 
         <div className='pgcon1'>
-          <h3>Third Party Privacy Policies</h3>
+          <h3 style={headStyle}> Third Party Privacy Policies</h3> 
 
           <p>
             Delhi By Cycle's Privacy Policy does not apply to other advertisers
@@ -159,7 +159,7 @@ function PrivacyPopup() {
             respective websites.
           </p>
 
-          <h3>CCPA Privacy Rights (Do Not Sell My Personal Information)</h3>
+          <h3> CCPA Privacy Rights (Do Not Sell My Personal Information)</h3> 
 
           <p>
             Under the CCPA, among other rights, California consumers have the
@@ -185,7 +185,7 @@ function PrivacyPopup() {
         </div>
 
         <div className='pgcon1'>
-          <h3>GDPR Data Protection Rights</h3>
+          <h3 style={headStyle}> GDPR Data Protection Rights</h3> 
 
           <p>
             We would like to make sure you are fully aware of all of your data
@@ -226,7 +226,7 @@ function PrivacyPopup() {
         </div>
 
         <div className='pgcon1'>
-          <h3>Children's Information</h3>
+          <h3 style={headStyle}> Children's Information</h3> 
 
           <p>
             Another part of our priority is adding protection for children while
@@ -242,7 +242,7 @@ function PrivacyPopup() {
             best efforts to promptly remove such information from our records.
           </p>
 
-          <h3>Changes to This Privacy Policy</h3>
+          <h3 style={headStyle}> Changes to This Privacy Policy</h3> 
 
           <p>
             We may update our Privacy Policy from time to time. Thus, we advise
@@ -254,7 +254,7 @@ function PrivacyPopup() {
         </div>
 
         <div className='pgcon1'>
-          <h3>Contact Us</h3>
+          <h3 style={headStyle}> Contact Us</h3> 
 
           <p>
             If you have any questions or suggestions about our Privacy Policy,
