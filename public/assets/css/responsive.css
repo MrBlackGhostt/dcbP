@@ -4332,6 +4332,19 @@
   #ui-datepicker-div {
   left: 15px !important;
   }
+  .notification {
+    color: #fff;
+    padding: 0.5vh;
+    /* padding-bottom: -2vh; */
+    font-size: 1.5vw;
+  }
+  .notification__heading {
+    color: #fff;
+    padding: 0.5vh;
+    padding-bottom: -10vh;
+    font-size: 1.5vw;
+  }
+  
   .newslatter-wrap .btn {
   padding: 0 15px;
   }
