@@ -551,7 +551,7 @@ class TourDetails extends Component {
                           marginBottom: "22px",
                         }}
                       >
-                        <option value='Regular Tour'>Regular Tour</option>
+                        <option value='Regular Tours'>Regular Tour</option>
                         <option value='Couple Tour'>Private Couple Tour</option>
                         <option value='Family Tour'>Private Family Tour</option>
                       </select>
