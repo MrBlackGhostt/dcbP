@@ -3255,48 +3255,57 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 		left: 50vw;
 	}
 	80% {
-		bottom: 2vh;
+		bottom: 10vh;
 		left: 50vw;
 	}
 	100% {
-		bottom: 4vh;
+		bottom: 20vh;
 		left: 50vw;
 	}
 }
 
 @keyframes notificationback {
 	0% {
-		bottom: 4vh;
+		bottom: 20vh;
 		left: 50vw;
 	}
 	80% {
-		bottom: 2vh;
+		bottom: 10vh;
 		left: 50vw;
 	}
 	100% {
-		bottom: 0;
+		bottom: 0vh;
 		left: 50vw;
 		opacity: 0;
 	}
-}
+} 
 .notification {
 	position: fixed;
-	padding: 10px 30px;
+	/* padding: 40px; */
+	padding-top: 4vh;
+	padding-bottom: 4vh;
+	padding-left: 4vh;
+	padding-right: 4vh;
+
 	z-index: 3000;
-	bottom: 4vh;
+	bottom: 10vh;
 	left: 50vw;
 	transform: translateX(-50%);
+	/* transform: translateY(50%); */
 	color: #25aae2;
+	justify-content: center;
 	text-align: center;
-	font-size: 16px;
-	height: 50px;
-	background-color: #323232;
+	font-size: 1.5rem;
+	
+	background-color: #7b7b7b;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-	animation: notifications 0.2s linear forwards, notificationback 0.2s linear 2s forwards;
+	
+	animation: notifications  0.2s linear forwards, notificationback 0.2s linear 1.5s forwards;
 }
 .notification__heading {
 	color: #fff;
-	font-size: 16px;
+	font-size: 1.5vw;
+	height: 5vh;
 }
 
 .banner-slider .slick-arrow {
