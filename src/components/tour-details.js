@@ -1,3 +1,4 @@
+// proper tour file
 import React, { Component } from "react";
 import Navbar from "./global-components/navbar";
 import PageHeader from "./global-components/page-header";
