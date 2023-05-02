@@ -34,7 +34,7 @@ class Offer extends Component {
                 </div>
               </div>
             </div>
-            <div className="details" style={{height:'280px',width:'315px' }}>
+            <div className="details" style={{height:'320px',width:'340px'}}>
               <h4 className="title">{name}</h4>
               <p className="content">{description}</p>
               <ul className="tp-list-meta border-bt-dot">

@@ -4472,7 +4472,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 	opacity: 0.6;
 }
 .single-destinations-list .details {
-	padding: 23px 30px 19px 30px;
+	padding: 23px -20px 19px 30px;
 	background: #ffffff;
 }
 .single-destinations-list .details .location {
