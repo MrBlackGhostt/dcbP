@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 import Navbar from "./global-components/navbar";
 import Banner from "./section-components/banner";
 import Ads from "./section-components/ads";
-
+import HomeData from "./section-components/homeData";
 import Offer from "./section-components/offer";
 import HolidayPlan from "./section-components/holiday-plan";
 
@@ -14,6 +14,8 @@ import BlogSection from "./blog-components/blog-section-v2";
 import { homePage } from "../actions";
 
 import { connect } from "react-redux";
+
+
 
 const bannerData = [
         {
@@ -78,6 +80,10 @@ imagewebp:"https://dbcpictures.s3.ap-south-1.amazonaws.com/landing+page/shahjaha
         },
 ];
 
+
+
+
+
 class Home_V1 extends Component {
   componentDidMount() {
     this.props.homePage();
@@ -94,7 +100,9 @@ class Home_V1 extends Component {
 		
 	}
 
+
   render() {
+  
     console.log(this.props.history.location.pathname);
     return (
       <div>
@@ -103,15 +111,27 @@ class Home_V1 extends Component {
 				{this.renderBanner()}
 			
 				
-        {this.props.homepagedata && (
+      
+       
           <div>
-            <Offer data={this.props.homepagedata.offerData} />
+             {this.props.homepagedata===null?
+            <>
+            <Offer data={HomeData.offerData} />
+            <HolidayPlan data={HomeData.holidayData} />
+            <BlogSection data={HomeData.blogData} />
+            <Client data={HomeData.reviewsData} />
+            <Ads data={HomeData.klmData} />
+            </>: (
+              <>
+              <Offer data={this.props.homepagedata.offerData} />
             <HolidayPlan data={this.props.homepagedata.holidayData} />
             <BlogSection data={this.props.homepagedata.blogData} />
             <Client data={this.props.homepagedata.reviews} />
             <Ads data={this.props.homepagedata.klm} />
+            </>
+            )}
           </div>
-        )}
+        
         <Subscribe />
         <Footer />
 				
