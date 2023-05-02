@@ -32,19 +32,62 @@ const bannerData = [
           location: "Old Delhi Cycle Tour",
           price: "INR 2000",
           priceField: "price",
+          imagejpeg:"https://dbcpictures.s3.ap-south-1.amazonaws.com/landing+page/shahjahan_tour_landing_page_banner_delhi_by_cycle.jpg",
+imagewebp:"https://dbcpictures.s3.ap-south-1.amazonaws.com/landing+page/shahjahan_tour_landing_page_banner_delhi_by_cycle.webp",
+          video: "https://www.youtube.com/watch?v=7uOZSi1iUio",
+        },
+        {
+          duration: "4 Hours",
+          durationExtraInfo: "Morning Tour",
+          facts1: "We hosted more than",
+          facts2: "30,000+",
+          facts3: "people",
+          facts3extra: "on this tour",
+          feature1: "Explore the organized chaos",
+          feature2: "Old Delhi",
+          feature3: "Breakfast",
+          feature3extra: "Included",
+          firstname: "The Shahjahan",
+          lastname: "Tour",
+          location: "Old Delhi Cycle Tour",
+          price: "INR 2000",
+          priceField: "price",
+          imagejpeg:"https://dbcpictures.s3.ap-south-1.amazonaws.com/landing+page/shahjahan_tour_landing_page_banner_delhi_by_cycle.jpg",
+imagewebp:"https://dbcpictures.s3.ap-south-1.amazonaws.com/landing+page/shahjahan_tour_landing_page_banner_delhi_by_cycle.webp",
+          video: "https://www.youtube.com/watch?v=7uOZSi1iUio",
+        },
+        {
+          duration: "4 Hours",
+          durationExtraInfo: "Morning Tour",
+          facts1: "We hosted more than",
+          facts2: "30,000+",
+          facts3: "people",
+          facts3extra: "on this tour",
+          feature1: "Explore the organized chaos",
+          feature2: "Old Delhi",
+          feature3: "Breakfast",
+          feature3extra: "Included",
+          firstname: "The Shahjahan",
+          lastname: "Tour",
+          location: "Old Delhi Cycle Tour",
+          price: "INR 2000",
+          priceField: "price",
+          imagejpeg:"https://dbcpictures.s3.ap-south-1.amazonaws.com/landing+page/shahjahan_tour_landing_page_banner_delhi_by_cycle.jpg",
+imagewebp:"https://dbcpictures.s3.ap-south-1.amazonaws.com/landing+page/shahjahan_tour_landing_page_banner_delhi_by_cycle.webp",
           video: "https://www.youtube.com/watch?v=7uOZSi1iUio",
         },
 ];
+
 class Home_V1 extends Component {
   componentDidMount() {
     this.props.homePage();
   }
 
 	renderBanner() {
-		
-			
-				if (this.props.homepagedata === null) {
-					return <Banner data={bannerData} />;
+    
+    if (this.props.homepagedata === null) {
+      
+      return <Banner data={bannerData} />;
 				}else{
 				return <Banner data={this.props.homepagedata.banner} />;
 				}
