@@ -24,7 +24,7 @@ class Offer extends Component {
           <div className="single-destinations-list text-center">
             <div className="thumb">
               {offerPrice && <span className="d-list-tag">Special Offer</span>}
-              <ImageLazyLoad imagewebp={imagewebp} imagejpeg={imagejpeg} />
+              <ImageLazyLoad imagewebp={imagewebp} imagejpeg={imagejpeg} style={{width:'315px' }}/>
 
               <div className="d-list-btn-wrap">
                 <div className="d-list-btn viaje-go-top">
@@ -34,7 +34,7 @@ class Offer extends Component {
                 </div>
               </div>
             </div>
-            <div className="details">
+            <div className="details" style={{height:'280px',width:'315px', padding:'0px' }}>
               <h4 className="title">{name}</h4>
               <p className="content">{description}</p>
               <ul className="tp-list-meta border-bt-dot">
