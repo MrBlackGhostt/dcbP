@@ -21,7 +21,7 @@ class Offer extends Component {
       } = singleData;
       return (
         <div className="d-list-slider-item">
-          <div className="single-destinations-list text-center">
+          <div className="single-destinations-list text-center" style={{width:'fit-content', margin:'auto'}}>
             <div className="thumb">
               {offerPrice && <span className="d-list-tag">Special Offer</span>}
               <ImageLazyLoad imagewebp={imagewebp} imagejpeg={imagejpeg} style={{width:'315px' }}/>
@@ -34,7 +34,7 @@ class Offer extends Component {
                 </div>
               </div>
             </div>
-            <div className="details" style={{height:'280px',width:'315px', padding:'0px' }}>
+            <div className="details" style={{height:'280px',width:'315px' }}>
               <h4 className="title">{name}</h4>
               <p className="content">{description}</p>
               <ul className="tp-list-meta border-bt-dot">
