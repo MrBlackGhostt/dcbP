@@ -7,7 +7,7 @@ class IntroV3 extends Component {
     return this.props.data.data.map((singleContent) => {
       const { imagewebp, imagejpeg, alt, text, title } = singleContent;
       return (
-        <div className="col-lg-3 col-md-6">
+        <div className="col-lg-3 col-md-6"> 
           <div className="single-intro style-two">
             <div className="thumb">
               <ImageLazyLoad
@@ -17,7 +17,7 @@ class IntroV3 extends Component {
               />
             </div>
             <h4 className="intro-title">{title}</h4>
-            <p>{text}</p>
+            <p  style={{ textAlign: "justify" }}>{text}</p>
           </div>
         </div>
       );
