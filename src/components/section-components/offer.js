@@ -24,7 +24,7 @@ class Offer extends Component {
           <div className="single-destinations-list text-center" style={{width:'fit-content', margin:'auto'}}>
             <div className="thumb">
               {offerPrice && <span className="d-list-tag">Special Offer</span>}
-              <ImageLazyLoad imagewebp={imagewebp} imagejpeg={imagejpeg} style={{width:'315px' }}/>
+              <ImageLazyLoad imagewebp={imagewebp} imagejpeg={imagejpeg} style={{width:'340px' }}/>
 
               <div className="d-list-btn-wrap">
                 <div className="d-list-btn viaje-go-top">
