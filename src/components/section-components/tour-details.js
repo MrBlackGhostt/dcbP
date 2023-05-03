@@ -1,4 +1,5 @@
 import * as React from "react"
+
 import { Component } from "react"
 import { Link } from "react-router-dom"
 import ImageLazyLoad from "../section-components/ImageLazyLoad"
@@ -13,6 +14,10 @@ import axios from "axios"
 import Foo from "./star-rating"
 import Rating from "@mui/material/Rating"
 import Stack from "@mui/material/Stack"
+import CountrySelector from "./CountrySelect"
+
+
+
 
 class TourDetails extends Component {
   componentDidMount() {
@@ -641,6 +646,20 @@ class TourDetails extends Component {
                             this.props.onAuthFieldChanged("people", value)
                           }}
                         />
+                      </div>
+
+                      <div className='single-widget-search-input-title'>
+                        <i className='fa fa-earth-asia' /> Country
+                      </div>
+                      <div className='single-widget-search-input'>
+                     <CountrySelector name='cars' style={{ border: "1px solid #eaeaea",
+                            color: "#666",
+                            width: "100%",
+                            height: "50px",
+                            lineHeight: "50px",
+                            padding: "0 20px",
+                            backgroundPosition: "20px",
+                            borderRadius: "4px",}}/>
                       </div>
 
                       <div className='single-widget-search-input-title'>
