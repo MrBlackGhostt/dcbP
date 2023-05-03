@@ -755,22 +755,23 @@ class TourDetails extends Component {
                     </div>
                   </div>
                 </div>
-				
-                <div>
+                
+                
+              </div>
+              
+              <div>
                   <aside class='sidebar-area sidebar-area-4'>
-                    
+                  {tourSuggestions && tourSuggestions.length > 0 &&(
                       <div class='widget widget-recent-post'>
                         <h2 class='widget-title'>Tours You May Also Like</h2>
 						
-						{tourSuggestions && tourSuggestions.length >0?(
+						
                         <ul>{this.renderTourSuggestion(tourSuggestions)}</ul>
-						):""}
+						
                       </div>
-                    
+                  )}
                   </aside>
                 </div>
-				
-              </div>
             </div>
           </div>
         </div>
