@@ -159,6 +159,9 @@ class Navbar extends Component {
 							<li>
 								<Link to="/blogs">Blogs</Link>
 							</li>
+                                                          <li>
+								<Link to="/user-profile">User Profile</Link>
+							</li>
 							<li>
 								<Link to="/about">About Us</Link>
 							</li>
