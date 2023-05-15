@@ -160,6 +160,9 @@ class Navbar extends Component {
 								<Link to="/blogs">Blogs</Link>
 							</li>
 							<li>
+								<Link to="/user-profile">User Profile</Link>
+							</li>
+							<li>
 								<Link to="/about">About Us</Link>
 							</li>
 							<li className="menu-item-has-children">
