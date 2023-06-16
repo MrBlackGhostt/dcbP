@@ -110,43 +110,60 @@ class Sidebar extends Component {
               >
                 India
               </button>
-              <Link to={{ pathname: "/tours/cycle-tours-in-delhi" }}>
+              <button
+                onClick={() => this.props.handleClickTags("Cycle")}
+                style={styles}
+              >
                 Cycle Tours
-              </Link>
-              <Link
-                to={{ pathname: "/tours/cycle-tours/raj-tour-delhi-by-cycle" }}
+              </button>
+              <button
+                onClick={() => this.props.handleClickTags("Bike")}
+                style={styles}
               >
                 Bike Tour
-              </Link>
-              <Link to={{ pathname: "/tours/bicycle-touring" }}>
+              </button>
+              <button
+                onClick={() => this.props.handleClickTags("Cycling ")}
+                style={styles}
+              >
                 Cycling Holidays
-              </Link>
-              <Link to={{ pathname: "/" }}>Delhi By Cycle</Link>
-              <Link to={{ pathname: "/tours" }}>Tours</Link>
-              <Link to={{ pathname: "/about" }}>Reviews</Link>
-              <Link
-                to={{
-                  pathname:
-                    "/tours/bicycle-touring/jim-corbett-villages-delhi-by-cycle",
-                }}
+              </button>
+              <button
+                onClick={() => this.props.handleClickTags("Delhi By Cycle")}
+                style={styles}
+              >
+                Delhi By Cycle
+              </button>
+              <button
+                onClick={() => this.props.handleClickTags("Tour")}
+                style={styles}
+              >
+                Tours
+              </button>
+              <button
+                onClick={() => this.props.handleClickTags("Reviews")}
+                style={styles}
+              >
+                Reviews
+              </button>
+              <button
+                onClick={() => this.props.handleClickTags("Nature")}
+                style={styles}
               >
                 Nature
-              </Link>
-              <Link
-                to={{
-                  pathname: "/tours/walking-tours/mehrauli-tour-delhi-by-cycle",
-                }}
+              </button>
+              <button
+                onClick={() => this.props.handleClickTags("Culture")}
+                style={styles}
               >
                 Culture
-              </Link>
-              <Link
-                to={{
-                  pathname:
-                    "/tours/bicycle-touring/krishna-trails-taj-mahal-delhi-by-cycle",
-                }}
+              </button>
+              <button
+                onClick={() => this.props.handleClickTags("Spiritual")}
+                style={styles}
               >
                 Spiritual
-              </Link>
+              </button>
             </div>
           </div>
           {/* <div className="widget_ads">
