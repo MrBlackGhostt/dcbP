@@ -23,7 +23,7 @@ class TourListV3 extends Component {
 
   handlePriceFilter = (e) => {
     const priceFilter = e.target.value
-    console.log(priceFilter, "e.targf")
+
     this.setState({ priceFilter })
   }
 
@@ -35,8 +35,6 @@ class TourListV3 extends Component {
       const parsedPrice = parseFloat(singleContent.price)
       const lowercaseQuery = query.toLowerCase()
       const lowercaseLocation = singleContent.location.toLowerCase()
-
-      console.log(parsedPrice, parsedPriceFilter)
 
       return (
         (singleContent.name.toLowerCase().includes(lowercaseQuery) ||
@@ -53,7 +51,6 @@ class TourListV3 extends Component {
 
     let publicUrl = process.env.PUBLIC_URL + "/"
     return filteredData.map((singleContent) => {
-      console.log(singleContent)
       const {
         imagewebp,
         imagejpeg,
