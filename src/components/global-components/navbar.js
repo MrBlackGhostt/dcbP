@@ -269,7 +269,6 @@ class Navbar extends Component {
                 </ul>
               </li>
             </ul>
-            <TransitionsModal />
           </div>
 
           <div className='nav-right-content'>
@@ -285,6 +284,7 @@ class Navbar extends Component {
             </ul>
           </div>
         </div>
+        <TransitionsModal />
       </nav>
     )
   }

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import parse from "html-react-parser";
-import ImageLazyLoad from "../section-components/ImageLazyLoad";
+import React, { Component } from "react"
+import { Link } from "react-router-dom"
+import parse from "html-react-parser"
+import ImageLazyLoad from "../section-components/ImageLazyLoad"
 
 class Client extends Component {
   renderContent() {
@@ -15,30 +15,30 @@ class Client extends Component {
         reviewerwebp,
         country,
         review,
-      } = singleData;
+      } = singleData
       return (
-        <div className="swiper-slide">
-          <div className="client-slider-item">
-            <div className="row">
+        <div className='swiper-slide'>
+          <div className='client-slider-item'>
+            <div className='row'>
               <div
-                className="col-lg-5 thumb"
+                className='col-lg-5 thumb'
                 style={{
                   backgroundImage: "url(" + `${imagejpeg})`,
                 }}
               >
-                <div className="title-meta">
+                <div className='title-meta'>
                   <p>{date}</p>
                   <h3>{tourName}</h3>
                 </div>
               </div>
-              <div className="col-lg-7">
-                <div className="details">
-                  <div className="tp-review-meta">
-                    <i className="ic-yellow fa fa-star" />
-                    <i className="ic-yellow fa fa-star" />
-                    <i className="ic-yellow fa fa-star" />
-                    <i className="ic-yellow fa fa-star" />
-                    <i className="ic-yellow fa fa-star" />
+              <div className='col-lg-7'>
+                <div className='details'>
+                  <div className='tp-review-meta'>
+                    <i className='ic-yellow fa fa-star' />
+                    <i className='ic-yellow fa fa-star' />
+                    <i className='ic-yellow fa fa-star' />
+                    <i className='ic-yellow fa fa-star' />
+                    <i className='ic-yellow fa fa-star' />
                     <span>5.0</span>
                   </div>
                   <ImageLazyLoad
@@ -60,57 +60,50 @@ class Client extends Component {
             </div>
           </div>
         </div>
-      );
-    });
+      )
+    })
   }
   render() {
-    let publicUrl = process.env.PUBLIC_URL + "/";
+    let publicUrl = process.env.PUBLIC_URL + "/"
 
     return (
-      <div
-        className="client-area pd-top-108 pd-bottom-90 jarallax"
-        style={{
-          backgroundImage:
-            "url(" +
-            "https://delhibycycle.s3.ap-south-1.amazonaws.com/landing-page-delhi-graphic-delhi-by-cycle.jpg)",
-        }}
-      >
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-6 col-lg-8">
-              <div className="section-title text-center style-two">
-                <h2 className="title" style={{ color: "#071C55" }}>
+      <div className='client-area pd-top-108 pd-bottom-90 jarallax'>
+        <div className='container'>
+          <div className='row justify-content-center'>
+            <div className='col-xl-6 col-lg-8'>
+              <div className='section-title text-center style-two'>
+                <h2 className='title' style={{ color: "#071C55" }}>
                   What Our Clients Say
                 </h2>
               </div>
             </div>
           </div>
-          <div className="swiper-container client-slider-two">
-            <div className="swiper-wrapper">
+          <div className='swiper-container client-slider-two'>
+            <div className='swiper-wrapper'>
               {/* item */}
               {this.renderContent()}
             </div>
             {/* Add Pagination */}
-            <div className="tp-control-nav text-center">
+            <div className='tp-control-nav text-center'>
               <div
-                className="slick-arrow swiper-buttons-prev"
+                className='slick-arrow swiper-buttons-prev'
                 style={{ background: "orange" }}
               >
-                <i className="la la-long-arrow-left" />
+                <i className='la la-long-arrow-left' />
               </div>
               <div
-                className="slick-arrow swiper-buttons-next"
+                className='slick-arrow swiper-buttons-next'
                 style={{ background: "orange" }}
               >
-                <i className="la la-long-arrow-right" />
+                <i className='la la-long-arrow-right' />
               </div>
             </div>
             {/* /.end carousel */}
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Client;
+export default Client
