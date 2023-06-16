@@ -5,6 +5,7 @@ import Ads from "./section-components/ads"
 import HomeData from "./section-components/homeData"
 import Offer from "./section-components/offer"
 import HolidayPlan from "./section-components/holiday-plan"
+import HolidayCity from "./section-components/tour-city"
 
 import Subscribe from "./section-components/subscribe"
 import Footer from "./global-components/footer"
@@ -110,6 +111,7 @@ class Home_V1 extends Component {
             <>
               <Offer data={HomeData.offerData} />
               <HolidayPlan data={HomeData.holidayData} />
+              <HolidayCity data={HomeData.holidayData} />
               <BlogSection data={HomeData.blogData} />
               <Client data={HomeData.reviewsData} />
               <Ads data={HomeData.klmData} />
@@ -118,6 +120,7 @@ class Home_V1 extends Component {
             <>
               <Offer data={this.props.homepagedata.offerData} />
               <HolidayPlan data={this.props.homepagedata.holidayData} />
+              <HolidayCity data={this.props.homepagedata.holidayData} />
               <BlogSection data={this.props.homepagedata.blogData} />
               <Client data={this.props.homepagedata.reviews} />
               <Ads data={this.props.homepagedata.klm} />
