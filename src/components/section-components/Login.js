@@ -1,184 +1,117 @@
-import * as React from "react"
-import { useState, useEffect, useRef } from "react"
-import Backdrop from "@mui/material/Backdrop"
-import Box from "@mui/material/Box"
-import Modal from "@mui/material/Modal"
-import Fade from "@mui/material/Fade"
-import { useForkRef } from "@mui/material"
-
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
+import React, { useState } from 'react';
+import Backdrop from '@mui/material/Backdrop';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import axios from 'axios';
+import { SHA256 } from 'crypto-js';
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: "background.paper",
-  borderRadius: "2%",
+  bgcolor: 'background.paper',
+  borderRadius: '2%',
   boxShadow: 30,
   p: 4,
-}
+};
+
 const style1 = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   width: 450,
-  bgcolor: "background.paper",
-  borderRadius: "2%",
+  bgcolor: 'background.paper',
+  borderRadius: '2%',
   boxShadow: 30,
   p: 4,
-}
-const instructions = {
-  fontSize: "0.75rem",
-  borderRadius: "0.5rem",
-  background: "#000",
-  color: "#fff",
-  padding: "0.25rem",
-  position: "relative",
-  bottom: "-10px",
-}
+};
 
-const offscreen = {
-  position: "absolute",
-  left: "-9999px",
-}
+const Login = () => {
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+    country: '',
+    whatsApp: '',
+  });
 
-export default function TransitionsModal() {
-  const [open, setOpen] = useState(false)
-  const [registerOpen, setRegisterOpen] = useState(false)
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
 
-  const emailRef = useRef()
-  const errRef = useRef()
-  const userRef = useRef()
-  const pwdRef = useRef()
-
-  const [email, setEmail] = useState("")
-  const [user, setUser] = useState("")
-  const [validEmail, setValidEmail] = useState(false)
-  const [validName, setValidName] = useState(false)
-  const [emailFocus, setEmailFocus] = useState(false)
-  const [userFocus, setUserFocus] = useState(false)
-
-  const [pwd, setPwd] = useState("")
-  const [validPwd, setValidPwd] = useState(false)
-  const [pwdFocus, setPwdFocus] = useState(false)
-
-  const [matchPwd, setMatchPwd] = useState("")
-  const [validMatch, setValidMatch] = useState(false)
-  const [matchFocus, setMatchFocus] = useState(false)
-
-  const [errMsg, setErrMsg] = useState("")
-  const [success, setSuccess] = useState(false)
-
-  useEffect(() => {
-    if (emailRef.current) {
-      emailRef.current.focus()
-    }
-  }, [])
-
-  useEffect(() => {
-    if (userRef.current) {
-      userRef.current.focus()
-    }
-  }, [])
-
-  useEffect(() => {
-    setValidName(USER_REGEX.test(user))
-    console.log(USER_REGEX.test(user), "UserValid")
-  }, [user])
-
-  useEffect(() => {
-    setValidEmail(emailRegex.test(email))
-    console.log("EmailValid", emailRegex.test(email))
-  }, [email])
-
-  useEffect(() => {
-    setValidPwd(PWD_REGEX.test(pwd))
-    console.log(PWD_REGEX.test(pwd), "PasswordValid")
-    setValidMatch(pwd === matchPwd)
-    console.log(setValidMatch(pwd === matchPwd))
-  }, [pwd, matchPwd])
-
-  const loginHandle = async (e) => {
-    e.preventDefault()
-    const v1 = emailRegex.test(email)
-    const v2 = PWD_REGEX.test(pwd)
-
-    if (!v1) {
-      alert("Please enter a valid email address.")
-      return
-    } else if (!v2) {
-      alert(`8 to 24 characters.
-          Must include uppercase and lowercase letters, a number and a special
-          character.
-          Allowed special characters:`)
-      return
-    }
-    setEmail("")
-    setPwd("")
-  }
-
-  const RegisterHandle = () => {
-    e.preventDefault()
-    const v1 = emailRegex.test(email)
-    const v2 = USER_REGEX.test(user)
-    const v3 = PWD_REGEX.test(pwd)
-
-    console.log(email)
-    console.log(user)
-
-    if (!v1) {
-      alert("Please enter a valid email address.")
-      return
-    } else if (!v2) {
-      alert(`
-          4 to 24 characters.
-          Must begin with a letter.
-          Letters, numbers, underscores, hyphens allowed.`)
-      return
-    }
-    if (!v3) {
-      alert(`
-          8 to 24 characters.
-          Must include uppercase and lowercase letters, a number and a special
-          character.
-          Allowed special characters:`)
-      return
-    }
-    setEmail("")
-    setUser("")
-  }
+  const [open, setOpen] = React.useState(false);
+  const [registerOpen, setRegisterOpen] = React.useState(false);
 
   const handleOpen = () => {
-    setOpen(true)
-    setRegisterOpen(false) // Close the register modal
-  }
+    setOpen(true);
+    setRegisterOpen(false); // Close the register modal
+  };
 
-  const handleClose = () => setOpen(false)
+  const handleClose = () => setOpen(false);
 
   const handleRegisterOpen = () => {
-    setOpen(false) // Close the login modal
-    setRegisterOpen(true)
+    setOpen(false); // Close the login modal
+    setRegisterOpen(true);
+  };
+
+  const handleRegisterClose = () => setRegisterOpen(false);
+
+  const register = (e) => {
+    e.preventDefault();
+    const { name, email, password, country, whatsApp, confirmPassword } = user;
+    if (
+      name &&
+      email &&
+      country &&
+      whatsApp &&
+      password &&
+      (password.length >= 8) && // Check if password length is greater than or equal to 8
+      (password === confirmPassword)
+    ) {
+         // Validate email format
+         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+         if (!emailRegex.test(email)) {
+           alert('Please enter a valid email');
+           return;
+         }
+      // Hash the password
+      const hashedPassword = SHA256(password).toString();
+  
+      // Create a new user object with the hashed password
+      const newUser = { ...user, password: hashedPassword };
+      axios.post('http://localhost:5000/register', newUser).then((res) => console.log(res));
+      alert('Register Successful');
+    } else if (password.length < 8) {
+      alert('Password must be greater than 8 digits');
+    } else {
+      alert('Invalid Inputs');
+      console.log(user);
+    }
+  };
+  const login = () => {
+    axios.post("http://localhost:5000/login", user)
+    .then(res => alert(res.data.message))
+    .catch(err => {
+        alert(err)
+    })
   }
-
-  const handleRegisterClose = () => setRegisterOpen(false)
-
+  
   return (
     <div>
-      <button
-        className='atn btn-yellow'
-        onClick={handleOpen}
-        style={{ width: "7vw" }}
-      >
+      <button className="atn btn-yellow" onClick={handleOpen} style={{ width: '7vw' }}>
         Login
       </button>
       <Modal
-        aria-labelledby='transition-modal-title'
-        aria-describedby='transition-modal-description'
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
         closeAfterTransition
@@ -191,88 +124,48 @@ export default function TransitionsModal() {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <form
+            <div
               style={{
-                justifyContent: "center",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "2vh",
-                padding: "2vh",
+                justifyContent: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '2vh',
+                padding: '2vh',
               }}
-              onSubmit={loginHandle}
             >
               <h1>Login</h1>
               <input
-                style={{
-                  display: "block",
-                  marginTop: "1vh",
-                  marginBottom: "1vh",
-                  padding: "15px",
-                  width: "300px",
-                }}
-                ref={emailRef}
-                id='email'
-                type='email'
-                placeholder='Email'
+                style={{ display: 'block', marginTop: '1vh', marginBottom: '1vh', padding: '15px', width: '300px',backgroundColor: "whitesmoke" , border: "none"}}
+                id="email"
+                autoComplete='off'
+                name='email' defaultValue={user.email} onChange={handleChange} placeholder='Enter your email'
                 required
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                aria-invalid={validEmail ? "false" : "true"}
-                aria-describedby='uidnote'
-                onFocus={() => setEmailFocus(true)}
-                onBlur={() => setEmailFocus(false)}
               />
               <input
-                style={{
-                  display: "block",
-                  marginTop: "1vh",
-                  padding: "15px",
-                  width: "300px",
-                }}
-                id='password'
-                type='password'
-                placeholder='Password'
+                 style={{ display: 'block', marginTop: '1vh', marginBottom: '1vh', padding: '15px', width: '300px',backgroundColor: "whitesmoke" , border: "none"}}
+                id="password"
                 autoComplete='off'
-                onChange={(e) => setPwd(e.target.value)}
-                value={pwd}
+                type="password"name='password' defaultValue={user.password} onChange={handleChange}
+                placeholder="Password"
                 required
-                aria-invalid={validPwd ? "false" : "true"}
-                aria-describedby='pwdnote'
-                onFocus={() => setPwdFocus(true)}
-                onBlur={() => setPwdFocus(false)}
               />
-
-              <span style={{ color: "red", cursor: "pointer" }}>
-                Forgot your password?
-              </span>
-              <button
-                className='btn btn-yellow'
-                style={{
-                  marginTop: "4vh",
-                  textAlign: "center",
-                  width: "300px",
-                }}
-              >
+              <button className="btn btn-yellow" style={{ marginTop: '4vh', textAlign: 'center', width: '300px' }} onClick={login}>
                 Submit
               </button>
               <span>
                 Don't have an account?
-                <a
-                  onClick={handleRegisterOpen}
-                  s
-                  style={{ color: "red", cursor: "pointer" }}
-                >
+                <a onClick={handleRegisterOpen} s style={{ color: 'red', cursor: 'pointer' }}>
                   Register
                 </a>
               </span>
-            </form>
+            </div>
           </Box>
         </Fade>
       </Modal>
       <Modal
-        aria-labelledby='transition-modal-title'
-        aria-describedby='transition-modal-description'
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
         open={registerOpen}
         onClose={handleRegisterClose}
         closeAfterTransition
@@ -285,182 +178,86 @@ export default function TransitionsModal() {
       >
         <Fade in={registerOpen}>
           <Box sx={style1}>
-            <form
-              className='tp-form-wrap'
+            <div
+              className="tp-form-wrap"
               style={{
-                justifyContent: "center",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "2vh",
-                padding: "2vh",
+                justifyContent: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '2vh',
+                padding: '2vh',
               }}
-              onSubmit={RegisterHandle}
             >
               <h1>Register</h1>
-              <div className='row'>
-                <div className='col-md-7'>
-                  <label className='single-input-wrap style-two'>
-                    <span className='single-input-title'>User Name</span>
+            
                     <input
-                      type='text'
-                      name='Username'
-                      id='username'
-                      ref={userRef}
-                      autoComplete='off'
-                      onChange={(e) => setUser(e.target.value)}
-                      value={user}
-                      required
-                      aria-invalid={validName ? "false" : "true"}
-                      aria-describedby='uidnote'
-                      onFocus={() => setUserFocus(true)}
-                      onBlur={() => setUserFocus(false)}
+                 style={{ display: 'block', marginTop: '1vh', marginBottom: '1vh', padding: '15px', width: '300px',backgroundColor: "whitesmoke" , border: "none"}}
+                      type="text"
+                  name="name"
+                  placeholder='Name'
+                      defaultValue={user.name}
+                      onChange={handleChange}
                     />
-                  </label>
-                </div>
-                {/* <div className='col-md-6'>
-                  <label className='single-input-wrap style-two'>
-                    <span className='single-input-title'>Last Name</span>
-                    <input type='text' name='last-name' />
-                  </label>
-                </div> */}
-                {/* <div className='col-lg-12'>
-                  <label className='single-input-wrap style-two'>
-                    <span className='single-input-title'>
-                      Tell us about yourself.
-                    </span>
-                    <textarea defaultValue={""} name='message' />
-                  </label>
-                </div> */}
-                <div className='col-md-9'>
-                  <label className='single-input-wrap style-two'>
-                    <span className='single-input-title'>Password</span>
-                    <input
-                      type='password'
-                      name='country'
-                      id='password'
-                      ref={pwdRef}
-                      autoComplete='off'
-                      onChange={(e) => setPwd(e.target.value)}
-                      value={pwd}
-                      aria-invalid={validPwd ? "false" : "true"}
-                      aria-describedby='pwdnote'
-                      onFocus={() => setPwdFocus(true)}
-                      onBlur={() => setPwdFocus(false)}
-                      required
+        
+                <input
+                 style={{ display: 'block', marginTop: '1vh', marginBottom: '1vh', padding: '15px', width: '300px',backgroundColor: "whitesmoke" , border: "none"}}
+                  name='password'
+                  type="password"
+                  placeholder="Password"
+                  defaultValue={user.password}
+                  onChange={handleChange}
+                  required
                     />
-                  </label>
-                  <p
-                    id='confirmnote'
-                    style={pwdFocus && !validPwd ? instructions : offscreen}
-                  >
-                    8 to 24 characters.
-                    <br />
-                    Must include uppercase and lowercase letters, a number and a
-                    special character.
-                    <br />
-                    Allowed special characters:{" "}
-                    <span aria-label='exclamation mark'>!</span>{" "}
-                    <span aria-label='at symbol'>@</span>{" "}
-                    <span aria-label='hashtag'>#</span>{" "}
-                    <span aria-label='dollar sign'>$</span>{" "}
-                    <span aria-label='percent'>%</span>
-                  </p>
-                </div>
-                <div className='col-md-9'>
-                  <label className='single-input-wrap style-two'>
-                    <span className='single-input-title'>Confirm Password</span>
-                    <input
-                      type='password'
-                      id='confirm_pwd'
-                      onChange={(e) => setMatchPwd(e.target.value)}
-                      value={matchPwd}
-                      aria-invalid={validMatch ? "false" : "true"}
-                      aria-describedby='pwdnote'
-                      onFocus={() => setMatchFocus(true)}
-                      onBlur={() => setMatchFocus(false)}
-                      required
+                      
+               
+                <input
+                 style={{ display: 'block', marginTop: '1vh', marginBottom: '1vh', padding: '15px', width: '300px',backgroundColor: "whitesmoke" , border: "none"}}
+                  name='confirmPassword'
+                  type="password"
+                  placeholder="Confirm Password"
+                  defaultValue={user.confirmPassword}
+                  onChange={handleChange}
+                  required
                     />
-                  </label>
-                  <p
-                    id='confirmnote'
-                    style={matchFocus && !validMatch ? instructions : offscreen}
-                  >
-                    Must match the first password input field.
-                  </p>
-                </div>
-                <div className='col-md-7'>
-                  <label className='single-input-wrap style-two'>
-                    <span className='single-input-title'>Country</span>
-                    <input type='text' name='country' required />
-                  </label>
-                </div>
-                <div className='col-md-9'>
-                  <label className='single-input-wrap style-two'>
-                    <span className='single-input-title'>Email Address</span>
-                    <input
-                      name='email'
-                      ref={emailRef}
-                      id='email'
-                      type='email'
-                      placeholder='Email'
-                      required
-                      onChange={(e) => setEmail(e.target.value)}
-                      value={email}
-                      aria-invalid={validEmail ? "false" : "true"}
-                      aria-describedby='uidnote'
-                      onFocus={() => setEmailFocus(true)}
-                      onBlur={() => setEmailFocus(false)}
+              <input
+                 style={{ display: 'block', marginTop: '1vh', marginBottom: '1vh', padding: '15px', width: '300px',backgroundColor: "whitesmoke" , border: "none"}}
+                
+                type="text" name="country" defaultValue={user.country} placeholder='Country' onChange={handleChange} required />
+                
+              <input
+                 style={{ display: 'block', marginTop: '1vh', marginBottom: '1vh', padding: '15px', width: '300px',backgroundColor: "whitesmoke" , border: "none"}}
+                      type="email"
+                name="email"
+                placeholder='Email'
+                      defaultValue={user.email}
+                onChange={handleChange}
+               required
                     />
-                  </label>
-                  <p
-                    id='confirmnote'
-                    style={emailFocus && !validEmail ? instructions : offscreen}
-                  >
-                    Enter The Valid Email
-                  </p>
-                </div>
-                <div className='col-md-6'>
-                  <label className='single-input-wrap style-two'>
-                    <span className='single-input-title'>Whatsapp No.</span>
-                    <input
-                      type='text'
-                      placeholder={+880}
-                      name='phone'
-                      required
-                    />
-                  </label>
-                </div>
-              </div>
-              <button
-                className='btn btn-yellow'
-                style={{
-                  marginTop: "4vh",
-                  justifyContent: "center",
-                  textAlign: "center",
-                  width: "300px",
-                }}
-                disabled={
-                  !validName || !validMatch || !validPwd || !validEmail
-                    ? true
-                    : false
-                }
+                
+              <input
+                 style={{ display: 'block', marginTop: '1vh', marginBottom: '1vh', padding: '15px', width: '300px',backgroundColor: "whitesmoke" , border: "none"}}
+                type="text" placeholder="WhatsApp No." name="whatsApp" defaultValue={user.whatsApp} onChange={handleChange} />
+                
+              
+            <button
+              className="btn btn-yellow" style={{ marginTop: '1vh', textAlign: 'center', width: '300px' }}
+                onClick={register}
               >
                 Submit
               </button>
               <span>
                 Already have an account?
-                <a
-                  onClick={handleOpen}
-                  style={{ color: "red", cursor: "pointer" }}
-                >
+                <a onClick={handleOpen} style={{ color: 'red', cursor: 'pointer' }}>
                   Login
                 </a>
               </span>
-            </form>
+              </div>
           </Box>
         </Fade>
       </Modal>
-    </div>
-  )
-}
+      </div>
+  );
+};
+
+export default Login;
